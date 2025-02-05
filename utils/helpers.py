@@ -21,9 +21,9 @@ import math
 def odd_even(num):
     """Check whether a number is even or odd"""
     if num % 2 == 0:
-        return "Even"
+        return "even"
     else:
-        return "Odd"
+        return "odd"
 
 
 def is_perfect(num):
