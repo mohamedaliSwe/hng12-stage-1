@@ -22,10 +22,10 @@ def classify_number():
             fun_fact = "This number does not have a fun fact."
 
         properties = []
-        if is_armstrong(number):
+        if is_armstrong(abs_number):
             properties.append("armstrong")
         
-        properties.append(odd_even(number))
+        properties.append(odd_even(abs_number))
 
         response = {
             "number": number,
@@ -40,8 +40,8 @@ def classify_number():
     except (ValueError, TypeError):
         alphabet = request.args.get('number')
         response = {
-            "number": number,
-            "error": true
+            "number": alphabet,
+            "error": True
         }
         return jsonify(response), 400
 
