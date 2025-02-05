@@ -60,5 +60,4 @@ def is_armstrong(num):
     digits = len(str(num))
     total = sum(int(digit) ** digits for digit in str(num))
 
-    if total == num:
-        return "armstrong"
+    return total == num

@@ -21,17 +21,24 @@ def classify_number():
         else:
             fun_fact = "This number does not have a fun fact."
 
+        properties = []
+        if is_armstrong(number):
+            properties.append("armstrong")
+        
+        properties.append(odd_even(number))
+
         response = {
             "number": number,
             "is_prime": is_prime(abs_number),
             "is_perfect": is_perfect(abs_number),
-            "properties": [is_armstrong(abs_number), odd_even(abs_number)],
+            "properties": properties,
             "digit_sum": digit_sum(abs_number),
             "fun_fact": fun_fact
         }
         return jsonify(response), 200
 
-    except ValueError:
+    except (ValueError, TypeError):
+        alphabet = request.args.get('number')
         response = {
             "number": number,
             "error": true
